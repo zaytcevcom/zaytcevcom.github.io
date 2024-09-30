@@ -9,15 +9,15 @@ interface ProductProps {
   price: number;
 }
 
-export const Product: FC<ProductProps> = (props: ProductProps) => {
+export const Product: FC<ProductProps> = ({ photo, name, description, price }) => {
   return (
     <div className={'product'}>
       <div className={'photo'}>
-        <img src={props.photo} alt={props.name} />
+        <img src={photo} alt={name} />
       </div>
-      <div className={'title'}>{props.name}</div>
-      <div className={'description'}>{props.description}</div>
-      <div className={'price'}>{props.price} руб.</div>
+      <div className={'title'}>{name}</div>
+      <div className={'description'}>{description}</div>
+      <div className={'price'}>{price} руб.</div>
       <AddToCart count={0} disabled={true} />
     </div>
   );

@@ -8,18 +8,18 @@ interface OperationProps {
   description: string;
 }
 
-export const Operation: FC<OperationProps> = (props: OperationProps) => {
+export const Operation: FC<OperationProps> = ({ amount, category, name, description }) => {
   return (
     <div className={'operation'}>
       <div className={'main'}>
-        <div className={'title'}>{props.name}</div>
-        <div className={'description'}>{props.description}</div>
+        <div className={'title'}>{name}</div>
+        <div className={'description'}>{description}</div>
       </div>
       <div className={'price'}>
         <div className={'amount'}>
-          <b>{props.amount}</b> руб.
+          <b>{amount}</b> руб.
         </div>
-        <div className={'category'}>{props.category}</div>
+        <div className={'category'}>{category}</div>
       </div>
     </div>
   );

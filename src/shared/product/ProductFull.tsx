@@ -10,20 +10,20 @@ interface ProductFullProps {
   price: number;
 }
 
-export const ProductFull: FC<ProductFullProps> = (props: ProductFullProps) => {
+export const ProductFull: FC<ProductFullProps> = ({ photo, name, category, description, price }) => {
   return (
     <div className={'product-full'}>
       <div>
         <div className={'photo'}>
-          <img src={props.photo} alt={props.name} />
+          <img src={photo} alt={name} />
         </div>
       </div>
       <div>
         <div className={'title'}>
-          {props.name} ({props.category})
+          {name} ({category})
         </div>
-        <div className={'description'}>{props.description}</div>
-        <div className={'price'}>{props.price} руб.</div>
+        <div className={'description'}>{description}</div>
+        <div className={'price'}>{price} руб.</div>
         <AddToCart count={0} disabled={true} />
       </div>
     </div>

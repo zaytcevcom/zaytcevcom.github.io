@@ -8,10 +8,12 @@ interface ModalProps {
 }
 
 export const Modal: FC<ModalProps> = ({ visible, children }) => {
-  const status = visible ? 'visible' : '';
+  if (!visible) {
+    return null;
+  }
 
   return (
-    <div className={cn('modal', status)}>
+    <div className={'modal'}>
       <div className={'wrapper'}></div>
       <div className={'content'}>
         <button className={'close'}>x</button>

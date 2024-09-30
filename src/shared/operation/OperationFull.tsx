@@ -9,20 +9,20 @@ interface OperationFullProps {
   createdAt: string;
 }
 
-export const OperationFull: FC<OperationFullProps> = (props: OperationFullProps) => {
+export const OperationFull: FC<OperationFullProps> = ({ amount, category, name, description, createdAt }) => {
   return (
     <div className={'operation'}>
       <div className={'main'}>
         <div className={'title'}>
-          {props.createdAt} — {props.name}
+          {createdAt} — {name}
         </div>
-        <div className={'description'}>{props.description}</div>
+        <div className={'description'}>{description}</div>
       </div>
       <div className={'price'}>
         <div className={'amount'}>
-          <b>{props.amount}</b> руб.
+          <b>{amount}</b> руб.
         </div>
-        <div className={'category'}>{props.category}</div>
+        <div className={'category'}>{category}</div>
       </div>
       <div>ред.</div>
     </div>
