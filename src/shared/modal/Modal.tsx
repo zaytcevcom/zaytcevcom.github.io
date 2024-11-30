@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
-import cn from 'clsx';
-import './modal.css';
+import s from './modal.module.sass';
 
 interface ModalProps {
   visible: boolean;
@@ -13,10 +12,10 @@ export const Modal: FC<ModalProps> = ({ visible, children }) => {
   }
 
   return (
-    <div className={'modal'}>
-      <div className={'wrapper'}></div>
-      <div className={'content'}>
-        <button className={'close'}>x</button>
+    <div className={s.modal}>
+      <div className={s.wrapper}></div>
+      <div className={s.content}>
+        <button className={s.close}>x</button>
         {children}
       </div>
     </div>

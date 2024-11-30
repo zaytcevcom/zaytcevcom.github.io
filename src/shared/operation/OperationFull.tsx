@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import './operation.css';
+import s from './operation.module.sass';
 
 interface OperationFullProps {
   amount: number;
@@ -11,18 +11,18 @@ interface OperationFullProps {
 
 export const OperationFull: FC<OperationFullProps> = ({ amount, category, name, description, createdAt }) => {
   return (
-    <div className={'operation'}>
-      <div className={'main'}>
-        <div className={'title'}>
+    <div className={s.operation}>
+      <div className={s.main}>
+        <div className={s.title}>
           {createdAt} — {name}
         </div>
-        <div className={'description'}>{description}</div>
+        <div className={s.description}>{description}</div>
       </div>
-      <div className={'price'}>
-        <div className={'amount'}>
+      <div className={s.price}>
+        <div className={s.amount}>
           <b>{amount}</b> руб.
         </div>
-        <div className={'category'}>{category}</div>
+        <div className={s.category}>{category}</div>
       </div>
       <div>ред.</div>
     </div>

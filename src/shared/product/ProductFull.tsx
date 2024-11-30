@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import './product.css';
+import s from './product.module.sass';
 import { AddToCart } from '../addToCart/AddToCart';
 
 interface ProductFullProps {
@@ -12,18 +12,18 @@ interface ProductFullProps {
 
 export const ProductFull: FC<ProductFullProps> = ({ photo, name, category, description, price }) => {
   return (
-    <div className={'product-full'}>
+    <div className={s.product_full}>
       <div>
-        <div className={'photo'}>
+        <div className={s.photo}>
           <img src={photo} alt={name} />
         </div>
       </div>
       <div>
-        <div className={'title'}>
+        <div className={s.title}>
           {name} ({category})
         </div>
-        <div className={'description'}>{description}</div>
-        <div className={'price'}>{price} руб.</div>
+        <div className={s.description}>{description}</div>
+        <div className={s.price}>{price} руб.</div>
         <AddToCart count={0} disabled={true} />
       </div>
     </div>

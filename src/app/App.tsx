@@ -1,25 +1,36 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Product } from 'src/shared/product/Product';
+import { ThemeProvider } from 'src/app/theming';
+import { Layout } from 'src/shared/layout/Layout';
+import { LocalizationInitiator } from 'src/app/localization/LocalizationInitiator';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          <b>Цель</b>: Изучить архитектуру современных frontend приложений на примере React.
-        </p>
-        <p>Web-разработчик (PHP, GO, JS, Базы данных, RabbitMQ, Docker, CI/CD)</p>
-        <p>Проектирую, разрабатываю и внедряю CRM и ERP системы.</p>
-        <p>
-          Мое портфолио:{' '}
-          <a href={'https://zaytcev.com'} target={'_blank'} rel="noreferrer">
-            zaytcev.com
-          </a>
-        </p>
-      </header>
-    </div>
+    <>
+      <LocalizationInitiator />
+      <ThemeProvider>
+        <Layout>
+          <Product
+            photo={'https://img.mvideo.ru/Big/30064758bb.jpg'}
+            name={'iPhone 14'}
+            description={'Смартфон Apple iPhone 14 128GB nanoSim/eSim Midnight'}
+            price={65999}
+          />
+          <Product
+            photo={'https://img.mvideo.ru/Big/30067797bb.jpg'}
+            name={'Samsung Galaxy Watch6'}
+            description={'Смарт-часы Samsung Galaxy Watch6 Classic 43 mm Black (SM-R950)'}
+            price={19999}
+          />
+          <Product
+            photo={'https://img.mvideo.ru/Pdb/30075301b.jpg'}
+            name={'ASUS X1504ZA-BQ1602'}
+            description={'Ноутбук ASUS X1504ZA-BQ1602 Cool Silver'}
+            price={44999}
+          />
+        </Layout>
+      </ThemeProvider>
+    </>
   );
 }
 

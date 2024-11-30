@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import './product.css';
+import s from './product.module.sass';
 import { AddToCart } from '../addToCart/AddToCart';
 
 interface ProductProps {
@@ -11,13 +11,13 @@ interface ProductProps {
 
 export const Product: FC<ProductProps> = ({ photo, name, description, price }) => {
   return (
-    <div className={'product'}>
-      <div className={'photo'}>
+    <div className={s.product}>
+      <div className={s.photo}>
         <img src={photo} alt={name} />
       </div>
-      <div className={'title'}>{name}</div>
-      <div className={'description'}>{description}</div>
-      <div className={'price'}>{price} руб.</div>
+      <div className={s.title}>{name}</div>
+      <div className={s.description}>{description}</div>
+      <div className={s.price}>{price} руб.</div>
       <AddToCart count={0} disabled={true} />
     </div>
   );

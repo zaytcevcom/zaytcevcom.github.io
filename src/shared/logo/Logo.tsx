@@ -1,6 +1,9 @@
 import React, { FC } from 'react';
-import './logo.css';
+import s from './logo.module.sass';
+import { useTranslation } from 'react-i18next';
 
 export const Logo: FC = () => {
-  return <div className={'logo'}>LOGO</div>;
+  const { t } = useTranslation();
+
+  return <div className={s.logo}>{t`components.Logo.text`}</div>;
 };

@@ -1,9 +1,0 @@
-header {
-    position: sticky;
-    top: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(45deg, rgb(69, 104, 220) -11.32%, rgb(176, 106, 179) 109.99%);
-    padding: 18px 0;
-    z-index: 99999;
-}
