@@ -43,6 +43,8 @@
  * - type ('Profit')
  * */
 
+import { v4 } from 'uuid';
+
 export type Category = {
   id: string;
   name: string;
@@ -95,16 +97,19 @@ export const createRandomProduct = (createdAt: string): Product => {
   const randomProductId = Math.floor(Math.random() * randomCategory.products.length);
   const randomProduct = randomCategory.products[randomProductId];
 
+  const randomPhotoId = Math.floor(Math.random() * photos.length);
+  const randomPhoto = photos[randomPhotoId];
+
   const category: Category = {
-    id: randomCategoryId.toString(),
+    id: v4(),
     name: randomCategory.name,
     photo: null,
   };
 
   return {
-    id: randomProductId.toString(),
+    id: v4(),
     name: randomProduct,
-    photo: null,
+    photo: randomPhoto,
     desc: 'Описание для ' + randomProduct,
     createdAt: createdAt,
     oldPrice: getRandomNumber(100, 20000),
@@ -122,13 +127,13 @@ export const createRandomOperation = (createdAt: string): Operation => {
   const randomCategory = categories[randomCategoryId];
 
   const category: Category = {
-    id: randomCategoryId.toString(),
+    id: v4(),
     name: randomCategory.name,
     photo: null,
   };
 
   return {
-    id: randomCategoryId.toString(),
+    id: v4(),
     name: randomCategory.name,
     desc: 'Описание для ' + randomCategory.name,
     createdAt: createdAt,
@@ -162,6 +167,12 @@ const categories: { name: string; products: string[] }[] = [
     name: 'Спорт и отдых',
     products: ['велосипед', 'ролики', 'лыжи', 'мяч', 'гантели'],
   },
+];
+
+const photos: string[] = [
+  'https://img.mvideo.ru/Pdb/30075301b.jpg',
+  'https://img.mvideo.ru/Big/30067797bb.jpg',
+  'https://img.mvideo.ru/Big/30064758bb.jpg',
 ];
 
 function getRandomNumber(min: number, max: number): number {
