@@ -1,6 +1,7 @@
 import type { Preview } from "@storybook/react";
 import { ThemeProvider } from 'src/app/theming';
 import React from 'react';
+import { LocalizationInitiator } from 'src/app/localization/LocalizationInitiator';
 
 const preview: Preview = {
   parameters: {
@@ -14,9 +15,12 @@ const preview: Preview = {
   },
   decorators: [
     (Story) => (
-      <ThemeProvider>
-        <Story />
-      </ThemeProvider>
+      <>
+        <LocalizationInitiator />
+        <ThemeProvider>
+          <Story />
+        </ThemeProvider>
+      </>
     ),
   ],
 };
