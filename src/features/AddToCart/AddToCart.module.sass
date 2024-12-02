@@ -1,0 +1,13 @@
+@import "src/app/theming/mixins"
+
+.button
+  padding: 4px 8px
+  border-radius: 4px
+  +theme(background-color, bg)
+  +theme(border, border)
+  +theme(border-color, borderColor2)
+  +theme(color, text)
+
+  &:hover
+    cursor: pointer
+    +theme(border-color, borderColor)

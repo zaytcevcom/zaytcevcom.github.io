@@ -1,12 +1,12 @@
 import React from 'react';
 import { ThemeProvider } from 'src/app/theming';
-import { Layout } from 'src/shared/layout/Layout';
+import { Layout } from 'src/shared/Layout';
 import { LocalizationInitiator } from 'src/app/localization/LocalizationInitiator';
-import { ModalWithInput } from 'src/shared/modal/ModalWithInput';
-import { ProductList } from 'src/shared/productList/ProductList';
 import { createRandomProduct, Product } from 'src/homeworks/ts1/3_write';
-import { LoadMoreButton } from 'src/shared/loadMoreButton/LoadMoreButton';
+import { LoadMoreButton } from 'src/shared/LoadMoreButton';
 import { useInView } from 'react-intersection-observer';
+import { ProductList } from 'src/widgets/ProductList';
+import { ModalWithInput } from 'src/widgets/Modal';
 
 function App() {
   const [products, setProducts] = React.useState<Product[]>(getProducts());
