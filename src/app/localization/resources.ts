@@ -14,6 +14,12 @@ export const resources = {
         Logo: {
           text: 'Logo',
         },
+        Header: {
+          products: 'Products',
+          profile: 'Profile',
+          cart: 'Cart',
+          product_new: 'New product',
+        },
         AddToCart: {
           text: 'Add to cart',
         },
@@ -70,6 +76,12 @@ export const resources = {
       components: {
         Logo: {
           text: 'Логотип',
+        },
+        Header: {
+          products: 'Продукты',
+          profile: 'Профиль',
+          cart: 'Корзина',
+          product_new: 'Новый продукт',
         },
         AddToCart: {
           text: 'В корзину',
