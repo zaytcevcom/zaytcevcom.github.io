@@ -6,28 +6,28 @@ import { NavLink, NavLinkProps } from 'react-router-dom';
 import s from './Header.module.sass';
 import cn from 'clsx';
 import { useTranslation } from 'react-i18next';
+import { routes } from 'src/app/Navigation/routes';
+import { useSelector } from 'react-redux';
+import { selectProfile } from 'src/store/slices/authSlice';
 
 const isActive: NavLinkProps['className'] = ({ isActive }) => cn(s.link, isActive && s.active);
 
 export const Header: FC = () => {
   const { t } = useTranslation();
 
+  const profile = useSelector(selectProfile);
+
   return (
     <header className={s.root}>
       <Logo />
       <div className={s.menu}>
-        <NavLink to="/" className={isActive}>
-          {t`components.Header.products`}
-        </NavLink>
-        <NavLink to="/profile" className={isActive}>
-          {t`components.Header.profile`}
-        </NavLink>
-        <NavLink to="/cart" className={isActive}>
-          {t`components.Header.cart`}
-        </NavLink>
-        <NavLink to="/product" className={isActive}>
-          {t`components.Header.product_new`}
-        </NavLink>
+        {routes
+          .filter((route) => route.isVisible(profile))
+          .map((route) => (
+            <NavLink key={route.path} to={route.path} className={isActive}>
+              {t(route.title)}
+            </NavLink>
+          ))}
       </div>
       <div>
         <LangSwitcher />

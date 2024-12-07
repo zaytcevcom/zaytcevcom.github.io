@@ -2,6 +2,10 @@ import React, { FC } from 'react';
 import s from './ProductForm.module.sass';
 import { useForm } from 'react-hook-form';
 import { t } from 'i18next';
+import { useDispatch } from 'react-redux';
+import { addProduct } from 'src/store/slices/productsSlice';
+import { Product } from 'src/homeworks/ts1/3_write';
+import { v4 } from 'uuid';
 
 type formProps = {
   name: string;
@@ -11,6 +15,8 @@ type formProps = {
 };
 
 export const ProductForm: FC = () => {
+  const dispatch = useDispatch();
+
   const {
     register,
     handleSubmit,
@@ -27,7 +33,18 @@ export const ProductForm: FC = () => {
   });
 
   const onSubmit = (data: formProps) => {
-    console.log(data);
+    const product: Product = {
+      id: v4(),
+      name: data.name,
+      photo: data.photo,
+      desc: data.description,
+      createdAt: '2024-12-06',
+      oldPrice: null,
+      price: parseFloat(data.price),
+      category: null,
+    };
+
+    dispatch(addProduct(product));
     reset();
   };
 
