@@ -3,6 +3,7 @@ import s from './Product.module.sass';
 import { AddToCart } from 'src/features/AddToCart';
 
 interface ProductFullProps {
+  id: string;
   photo?: string;
   category: string;
   name: string;
@@ -10,7 +11,7 @@ interface ProductFullProps {
   price: number;
 }
 
-export const ProductFull: FC<ProductFullProps> = ({ photo, name, category, description, price }) => {
+export const ProductFull: FC<ProductFullProps> = ({ id, photo, name, category, description, price }) => {
   return (
     <div className={s.product_full}>
       <div>
@@ -24,7 +25,7 @@ export const ProductFull: FC<ProductFullProps> = ({ photo, name, category, descr
         </div>
         <div className={s.description}>{description}</div>
         <div className={s.price}>{price} руб.</div>
-        <AddToCart count={0} disabled={true} />
+        <AddToCart id={id} count={0} disabled={true} />
       </div>
     </div>
   );

@@ -2,6 +2,8 @@ import React, { FC } from 'react';
 import s from './ProfileForm.module.sass';
 import { useForm } from 'react-hook-form';
 import { t } from 'i18next';
+import { useSelector } from 'react-redux';
+import { selectProfile } from 'src/store/slices/authSlice';
 
 type formProps = {
   username: string;
@@ -9,6 +11,8 @@ type formProps = {
 };
 
 export const ProfileForm: FC = () => {
+  const profile = useSelector(selectProfile);
+
   const {
     register,
     handleSubmit,
@@ -16,7 +20,7 @@ export const ProfileForm: FC = () => {
     reset,
   } = useForm({
     defaultValues: {
-      username: '',
+      username: profile.username,
       about: '',
     },
     mode: 'onChange',
