@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { Logo } from '../Logo';
 import { LangSwitcher } from 'src/features/LangSwitcher';
 import { ThemeSwitcher } from 'src/features/ThemeSwitcher';
-import { NavLink, NavLinkProps } from 'react-router-dom';
+import { NavLink, NavLinkProps, useLocation } from 'react-router-dom';
 import s from './Header.module.sass';
 import cn from 'clsx';
 import { useTranslation } from 'react-i18next';
@@ -11,6 +11,7 @@ const isActive: NavLinkProps['className'] = ({ isActive }) => cn(s.link, isActiv
 
 export const Header: FC = () => {
   const { t } = useTranslation();
+  const location = useLocation();
 
   return (
     <header className={s.root}>
@@ -25,7 +26,7 @@ export const Header: FC = () => {
         <NavLink to="/cart" className={isActive}>
           {t`components.Header.cart`}
         </NavLink>
-        <NavLink to="/product" className={isActive}>
+        <NavLink to="/product" className={isActive} state={{ background: location }}>
           {t`components.Header.product_new`}
         </NavLink>
       </div>
