@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { Logo } from '../Logo';
 import { LangSwitcher } from 'src/features/LangSwitcher';
 import { ThemeSwitcher } from 'src/features/ThemeSwitcher';
-import { NavLink, NavLinkProps } from 'react-router-dom';
+import { NavLink, NavLinkProps, useLocation } from 'react-router-dom';
 import s from './Header.module.sass';
 import cn from 'clsx';
 import { useTranslation } from 'react-i18next';
@@ -14,6 +14,7 @@ const isActive: NavLinkProps['className'] = ({ isActive }) => cn(s.link, isActiv
 
 export const Header: FC = () => {
   const { t } = useTranslation();
+  const location = useLocation();
 
   const profile = useSelector(selectProfile);
 
@@ -24,7 +25,12 @@ export const Header: FC = () => {
         {routes
           .filter((route) => route.isVisible(profile))
           .map((route) => (
-            <NavLink key={route.path} to={route.path} className={isActive}>
+            <NavLink
+              key={route.path}
+              to={route.path}
+              className={isActive}
+              state={{ background: route.isModal ? location : null }}
+            >
               {t(route.title)}
             </NavLink>
           ))}
