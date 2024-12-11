@@ -1,21 +1,22 @@
 import React, { FC } from 'react';
 import { ProductList } from 'src/widgets/ProductList';
-import { Product } from 'src/homeworks/ts1/3_write';
+import { useSelector } from 'react-redux';
+import { selectProducts } from 'src/store/slices/productsSlice';
+import { selectCart } from 'src/store/slices/cartSlice';
+import { useTranslation } from 'react-i18next';
 
 export const CartPage: FC = () => {
-  const initProducts: Product[] = [
-    {
-      id: '1',
-      price: 120000,
-      name: 'iPhone 15 Pro Max',
-      desc: 'Apple iPhone 15 Pro Max',
-      photo: 'https://img.mvideo.ru/Big/30064758bb.jpg',
-      createdAt: '04.12.2024',
-      oldPrice: 150000,
-      category: null,
-    },
-  ];
-  const [products] = React.useState<Product[]>(initProducts);
+  const { t } = useTranslation();
+  const allProducts = useSelector(selectProducts);
+  const cartItems = useSelector(selectCart);
+
+  const products = cartItems.map((item) => {
+    return allProducts.find((product) => product.id === item.id);
+  });
+
+  if (products.length === 0) {
+    return <div>{t`pages.CartPage.emptyList`}</div>;
+  }
 
   return (
     <>
