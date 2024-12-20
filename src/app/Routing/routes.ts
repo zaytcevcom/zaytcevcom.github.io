@@ -14,6 +14,10 @@ type RouteType = {
   isModal: boolean;
 };
 
+const isGuest = (user: ProfileState) => !user;
+const isUser = (user: ProfileState) => !!user;
+const isAdmin = (user: ProfileState) => user && user.role === 'admin';
+
 export const routes: RouteType[] = [
   {
     path: '/',
@@ -26,7 +30,7 @@ export const routes: RouteType[] = [
     path: '/profile',
     element: ProfilePage,
     title: 'components.Header.profile',
-    isVisible: (user) => !!user,
+    isVisible: isUser,
     isModal: false,
   },
   {
@@ -40,14 +44,14 @@ export const routes: RouteType[] = [
     path: '/login',
     element: LoginPage,
     title: 'components.Header.login',
-    isVisible: (user) => !user,
+    isVisible: isGuest,
     isModal: false,
   },
   {
     path: '/product',
     element: ProductForm,
     title: 'components.Header.product_new',
-    isVisible: (user) => !!user && user.role === 'admin',
+    isVisible: isAdmin,
     isModal: true,
   },
 ];

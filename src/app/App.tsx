@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { ThemeProvider } from 'src/app/theming';
 import { Layout } from 'src/shared/Layout';
 import { LocalizationInitiator } from 'src/app/localization/LocalizationInitiator';
-import { Navigation } from 'src/app/Navigation';
+import { Routing } from 'src/app/Routing';
 import { useDispatch, useSelector } from 'react-redux';
 import { init, selectIsInit } from 'src/store/slices/appSlice';
 
@@ -25,7 +25,7 @@ function App() {
       <LocalizationInitiator />
       <ThemeProvider>
         <Layout>
-          <Navigation />
+          <Routing />
         </Layout>
       </ThemeProvider>
     </>

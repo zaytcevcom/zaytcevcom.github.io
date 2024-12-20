@@ -6,7 +6,7 @@ import { NavLink, NavLinkProps, useLocation } from 'react-router-dom';
 import s from './Header.module.sass';
 import cn from 'clsx';
 import { useTranslation } from 'react-i18next';
-import { routes } from 'src/app/Navigation/routes';
+import { routes } from 'src/app/Routing/routes';
 import { useSelector } from 'react-redux';
 import { selectProfile } from 'src/store/slices/authSlice';
 
