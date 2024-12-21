@@ -10,6 +10,11 @@ export const resources = {
         invalid_email_address: 'Invalid email address',
         too_short_password: 'The password is too short',
       },
+      pages: {
+        CartPage: {
+          emptyList: 'Empty list',
+        },
+      },
       components: {
         Logo: {
           text: 'Logo',
@@ -19,6 +24,8 @@ export const resources = {
           profile: 'Profile',
           cart: 'Cart',
           product_new: 'New product',
+          login: 'Login',
+          logout: 'Logout',
         },
         AddToCart: {
           text: 'Add to cart',
@@ -54,10 +61,12 @@ export const resources = {
           password: {
             placeholder: 'Enter password',
           },
+          submit: 'Login',
         },
       },
       buttons: {
         save: 'Save',
+        logout: 'Logout',
       },
       limits: {
         minLength4: 'At least 4 characters',
@@ -73,6 +82,11 @@ export const resources = {
         invalid_email_address: 'Некорректный email адрес',
         too_short_password: 'Слишком короткий пароль',
       },
+      pages: {
+        CartPage: {
+          emptyList: 'Список продуктов пуст',
+        },
+      },
       components: {
         Logo: {
           text: 'Логотип',
@@ -82,6 +96,8 @@ export const resources = {
           profile: 'Профиль',
           cart: 'Корзина',
           product_new: 'Новый продукт',
+          login: 'Вход',
+          logout: 'Выход',
         },
         AddToCart: {
           text: 'В корзину',
@@ -117,10 +133,12 @@ export const resources = {
           password: {
             placeholder: 'Введите пароль',
           },
+          submit: 'Войти',
         },
       },
       buttons: {
         save: 'Сохранить',
+        logout: 'Выйти',
       },
       limits: {
         minLength4: 'Не менее 4-x символов',
