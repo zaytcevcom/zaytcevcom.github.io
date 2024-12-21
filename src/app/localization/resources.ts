@@ -26,6 +26,8 @@ export const resources = {
           product_new: 'New product',
           login: 'Login',
           logout: 'Logout',
+          signup: 'SignUp',
+          signup_toolkit: 'SignUp (Toolkit)',
         },
         AddToCart: {
           text: 'Add to cart',
@@ -63,6 +65,15 @@ export const resources = {
           },
           submit: 'Login',
         },
+        SignupForm: {
+          email: {
+            placeholder: 'Enter email',
+          },
+          password: {
+            placeholder: 'Enter password',
+          },
+          submit: 'Signup',
+        },
       },
       buttons: {
         save: 'Save',
@@ -98,6 +109,8 @@ export const resources = {
           product_new: 'Новый продукт',
           login: 'Вход',
           logout: 'Выход',
+          signup: 'Регистрация',
+          signup_toolkit: 'Регистрация (Toolkit)',
         },
         AddToCart: {
           text: 'В корзину',
@@ -134,6 +147,15 @@ export const resources = {
             placeholder: 'Введите пароль',
           },
           submit: 'Войти',
+        },
+        SignupForm: {
+          email: {
+            placeholder: 'Введите почту',
+          },
+          password: {
+            placeholder: 'Введите пароль',
+          },
+          submit: 'Зарегистрироваться',
         },
       },
       buttons: {

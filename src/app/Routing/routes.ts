@@ -5,6 +5,8 @@ import { LoginPage } from 'src/pages/LoginPage/LoginPage';
 import { FC } from 'react';
 import { ProfileState } from 'src/store/slices/authSlice';
 import { ProductForm } from 'src/widgets/ProductForm';
+import { SignupPage } from 'src/pages/SignupPage/SignupPage';
+import { SignupPageToolkit } from 'src/pages/SignupPageToolkit/SignupPageToolkit';
 
 type RouteType = {
   path: string;
@@ -44,6 +46,20 @@ export const routes: RouteType[] = [
     path: '/login',
     element: LoginPage,
     title: 'components.Header.login',
+    isVisible: isGuest,
+    isModal: false,
+  },
+  {
+    path: '/signup',
+    element: SignupPage,
+    title: 'components.Header.signup',
+    isVisible: isGuest,
+    isModal: false,
+  },
+  {
+    path: '/signup-toolkit',
+    element: SignupPageToolkit,
+    title: 'components.Header.signup_toolkit',
     isVisible: isGuest,
     isModal: false,
   },
